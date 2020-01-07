@@ -42,8 +42,8 @@ const auth = require("../auth/authenticate-middleware")
         res.status(500).json({ message: 'Failed to get schemes' });
         });
         });
-        router.delete('/', auth,(req, res) => {
-            db.deleteTicket(req.body.id)
+        router.delete('/:id', auth,(req, res) => {
+            db.deleteTicket(req.params.id)
             .then(i => {
             res.status(200).json(i);
             })
