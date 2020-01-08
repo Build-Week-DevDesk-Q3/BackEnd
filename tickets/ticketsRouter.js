@@ -16,7 +16,7 @@ const auth = require("../auth/authenticate-middleware")
     res.status(200).json(i);
     })
     .catch(err => {
-    res.status(500).json({ message: 'Failed to get schemes' });
+    res.status(500).json({ message: err });
     });
     });
    router.post('/', auth,(req, res) => {
