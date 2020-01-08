@@ -34,7 +34,7 @@ router.post('/login', (req, res) => {
     }
     const token = jwt.sign(payload,"secret",options)
     if (user && bcrypt.compareSync(body.password,user.password))
-    {res.status(200).json({message:`Welcome ${body.username}`,token:token})}
+    {res.status(200).json({message:`Welcome ${body.username}`,token:token,body:body})}
    else {
      res.status(404).json({message:`invalid creditinials`})
    }

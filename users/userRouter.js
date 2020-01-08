@@ -2,7 +2,7 @@ const router = require('express').Router();
 const db = require("../auth/authModel")
 const auth = require("../auth/authenticate-middleware")
 router.put('/:id', auth,(req, res) => {
-   
+  console.log(req.body)
   db.editUser(req.params.id,req.body)
   .then(i => {
   res.status(201).json(i);
