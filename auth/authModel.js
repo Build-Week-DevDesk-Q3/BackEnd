@@ -28,7 +28,7 @@ const db = require('../data/dbConfig')
    }
    const getTicket = id => {
     return db('tickets as t')
-    .select("t.id","t.student_id","t.helper_id","u.role","u.username","t.notes","t.name","t.category","t.open","t.completed")
+    .select("t.id","t.student_id","t.helper_id","u.role","u.username","t.notes","t.name","t.category","t.open","t.completed","t.description")
     .join('users as u', 't.student_id', 'u.id')
     .where('t.student_id', id)
     .then(tickets => {
