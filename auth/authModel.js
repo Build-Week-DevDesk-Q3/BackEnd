@@ -17,7 +17,7 @@ const db = require('../data/dbConfig')
        return db("tickets").where({"id":id}).update({"helper_id":helper})
    }
    function openTickets(){
-       return db("tickets").select("tickets.id","answer","description","username","completed","open","category","notes","name","student_id","helper_id","role").join("users",{"student_id":"users.id"})
+       return db("tickets")
        .then(tickets => {
         return tickets.map(ticket => {
             ticket.completed = ticket.completed ? true :false

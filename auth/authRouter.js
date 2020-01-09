@@ -16,7 +16,15 @@ res.status(500).json({ message: 'Failed to get schemes' });
 });
 });
 
-
+router.get('/tickets', (req, res) => {
+  db.openTickets()
+  .then(i => {
+  res.status(200).json(i);
+  })
+  .catch(err => {
+  res.status(500).json({ message: 'Failed to get schemes' });
+  });
+  });
 
 router.post('/login', (req, res) => {
   let body = req.body
