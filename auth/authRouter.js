@@ -20,11 +20,9 @@ res.status(500).json({ message: 'Failed to get schemes' });
 
 router.post('/login', (req, res) => {
   let body = req.body
-  console.log(body)
   db.login(body)
   .first()
   .then(user => {
-    console.log(user)
     const payload = {
       userid:user.id,
       username:user.username
