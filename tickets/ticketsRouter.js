@@ -36,7 +36,7 @@ const auth = require("../auth/authenticate-middleware")
     router.put('/:id', auth,(req, res) => {
         db.editTicket(req.params.id,req.body)
         .then(i => {
-        res.status(200).json(i);
+        res.status(201).json(i);
         })
         .catch(err => {
         res.status(500).json({ message: 'Failed to get schemes' });
