@@ -31,9 +31,9 @@ router.put('/:id', auth,(req, res) => {
     res.status(500).json({ message: 'Failed to get schemes' });
     });
     });
-   router.get('/helpertickets', auth,(req, res) => {
+   router.get('/helpertickets/:id', auth,(req, res) => {
     
-    db.helperTickets(req.body.helper_id)
+    db.helperTickets(req.params.id)
     .then(i => {
     res.status(200).json(i);
     })
@@ -41,9 +41,9 @@ router.put('/:id', auth,(req, res) => {
     res.status(500).json({ message: 'Failed to get schemes' });
     });
     });
-    router.get('/studenttickets', auth,(req, res) => {
+    router.get('/studenttickets/:id', auth,(req, res) => {
     
-      db.studentTickets(req.body.student_id)
+      db.studentTickets(req.params.id)
       .then(i => {
       res.status(200).json(i);
       })
