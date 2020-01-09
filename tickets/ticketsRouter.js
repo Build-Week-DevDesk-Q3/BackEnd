@@ -19,6 +19,7 @@ const auth = require("../auth/authenticate-middleware")
     res.status(500).json({ message: err });
     });
     });
+    
    router.post('/', auth,(req, res) => {
        req.body.helper_id = null
        req.body.completed = false
