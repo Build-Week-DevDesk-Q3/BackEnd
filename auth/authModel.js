@@ -38,7 +38,7 @@ const db = require('../data/dbConfig')
     })
    }
    function helperTickets(id){
-       return db("tickets").select("tickets.id","username","description","completed","open","category","notes","name","student_id","helper_id","role").join("users",{"helper_id":"users.id"}).where({"helper_id":id})
+       return db("tickets").select("tickets.id","answer","username","description","completed","open","category","notes","name","student_id","helper_id","role").join("users",{"helper_id":"users.id"}).where({"helper_id":id})
        .then(tickets => {
         return tickets.map(ticket => {
             ticket.completed = ticket.completed ? true :false
@@ -48,7 +48,7 @@ const db = require('../data/dbConfig')
     })
    }
    function studentTickets(id){
-    return db("tickets").select("tickets.id","description","username","completed","open","category","notes","name","student_id","helper_id","role").join("users",{"student_id":"users.id"}).where({"student_id":id})
+    return db("tickets").select("tickets.id","answer","description","username","completed","open","category","notes","name","student_id","helper_id","role").join("users",{"student_id":"users.id"}).where({"student_id":id})
     .then(tickets => {
      return tickets.map(ticket => {
          ticket.completed = ticket.completed ? true :false
